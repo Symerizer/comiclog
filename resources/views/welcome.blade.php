@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="/css/app.css" type="text/css">
         <style>
             html, body {
                 background-color: #fff;
@@ -78,6 +79,10 @@
                     Laravel
                 </div>
 
+                <div class="test">
+                    Here is my test
+                </div>
+
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
@@ -87,5 +92,6 @@
                 </div>
             </div>
         </div>
+        <script type="application/javascript" src="/js/app.js"></script>
     </body>
 </html>
