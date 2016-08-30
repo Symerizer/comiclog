@@ -25,7 +25,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        Menu
+                        <h3>Menu</h3>
+                        <ul>
+                            <li><a href="">Issues</a></li>
+                        </ul>
                     </div>
                     <div class="col-md-8">
                         <h1>Content</h1>
