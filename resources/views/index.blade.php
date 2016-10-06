@@ -27,11 +27,13 @@
                     <div class="col-md-4">
                         <h3>Menu</h3>
                         <ul>
-                            <li><a href="">Issues</a></li>
+                            <li><a href="#">Lorem</a></li>
                         </ul>
                     </div>
                     <div class="col-md-8">
-                        <h1>Content</h1>
+                        <div id="search">
+                            <searchbar></searchbar>
+                        </div>
                     </div>
                 </div>
             </div>
