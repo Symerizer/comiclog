@@ -11,7 +11,7 @@
     export default{
         data(){
             return{
-                query: ''
+                query: []
             }
         },
 
@@ -26,10 +26,10 @@
 
         methods: {
             getResults: function(){
-                /*$.getJSON('/api/search', function(results){
+                $.post('/api/search', function(results){
                     console.log(results);
-                });*/
-                this.$http.get('/api/search', function(results){
+                });
+                this.$http.post('/api/search', function(results){
                     console.log(results);
                 });
             }

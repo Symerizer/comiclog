@@ -12,6 +12,6 @@ class Searches extends Controller
 
         $query = new Search('characters', 'nameStartsWith=', 'the');
 
-        return response()->json($query->returnResults());
+        return $query->returnResults();
     }
 }
