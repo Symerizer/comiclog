@@ -11,6 +11,7 @@ class Search extends Model
     private $type;
     private $param;
     private $userInput;
+    private $charLimit = 2;
 
     function __construct($type, $param, $userInput){
         parent::__construct();
@@ -18,10 +19,14 @@ class Search extends Model
         $this->hash = '&ts='.$ts.'&apikey='.env('MARVEL_PUBLIC_KEY').'&hash='.md5($ts.env('MARVEL_PRIVATE_KEY').env('MARVEL_PUBLIC_KEY'));
         $this->type = $type;
         $this->param = $param;
-        $this->userInput = $userInput;
+        $this->userInput = urlencode($userInput);
     }
 
     public function returnResults(){
+        $userInputLength = strlen($this->userInput);
+        if($userInputLength < $this->charLimit){
+            return ["Query must be more than " .$this->charLimit." characters."];
+        }
         $query = json_decode(file_get_contents($this->apiUri.$this->type.'?'.$this->param.$this->userInput.$this->hash), true);
 
         $results = [];
