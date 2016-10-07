@@ -10,8 +10,8 @@ class Searches extends Controller
 {
     public function returnCharacters(Request $request){
 
-        $query = new Search('characters', 'nameStartsWith=', 'the');
+        $query = new Search('characters', 'nameStartsWith=', $request->get('input'));
 
-        return $query->returnResults();
+        return response()->json($query->returnResults());
     }
 }
