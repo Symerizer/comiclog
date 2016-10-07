@@ -2,7 +2,7 @@
     <div class="input-group">
         <label for="query">Search</label>
         <input class="form-control" v-model="query" id="query" name="query" type="text">
-        <p>{{ skill }}</p>
+        <p></p>
     </div>
 </template>
 
@@ -11,18 +11,27 @@
     export default{
         data(){
             return{
-                query: 100
+                query: ''
             }
         },
 
         computed: {
 
-            skill: function(){
-                if(this.query <= 100){
-                    return 'Beginner';
-                }else{
-                    return 'Advanced';
-                }
+
+        },
+
+        created: function(){
+            this.getResults();
+        },
+
+        methods: {
+            getResults: function(){
+                /*$.getJSON('/api/search', function(results){
+                    console.log(results);
+                });*/
+                this.$http.get('/api/search', function(results){
+                    console.log(results);
+                });
             }
         }
     }
