@@ -1,13 +1,14 @@
 <template>
-    <div class="input-group">
-        <label for="query">Search</label>
-        <input class="form-control" v-model="query" @keydown.enter="getResults" id="query" name="query" type="text">
-            <ul v-if="queryResults.length > 0">
-                <li v-for="result in queryResults">
-                    {{ result }}
-                </li>
-            </ul>
-        <p v-else>No results</p>
+    <div class="form">
+        <div class="form-group">
+            <input class="form-control" v-model="query" @keydown.enter="getResults" id="query" name="query" type="text">
+                <ul v-if="queryResults.length > 0">
+                    <li v-for="result in queryResults">
+                        {{ result }}
+                    </li>
+                </ul>
+            <p v-else>No results</p>
+        </div>
     </div>
 </template>
 
@@ -42,9 +43,13 @@
 
 </script>
 
-<style>
+<style scoped>
     ul{
         list-style: none;
+        padding-left: 0;
+    }
+    .form{
+        margin-top: 22px;
     }
 
 

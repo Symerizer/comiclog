@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="/css/app.css" type="text/css">
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+
             @if (Route::has('login'))
                 <div class="top-right links">
                     <a href="{{ url('/login') }}">Login</a>
@@ -21,22 +21,22 @@
                 </div>
             @endif
 
-            <div class="container">
+            <div class="container fill">
                 <div class="row">
-                    <div class="col-md-4">
-                        <h3>Menu</h3>
+                    <div id="menu" class="col-md-2">
+                        <h2>ComicLog</h2>
                         <ul>
                             <li><a href="#">Lorem</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-8">
+                    <div id="content" class="col-md-10">
                         <div id="search">
                             <searchbar></searchbar>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
 
         <script type="application/javascript" src="/js/app.js"></script>
     </body>
