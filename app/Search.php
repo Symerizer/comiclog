@@ -27,11 +27,14 @@ class Search extends Model
         if($userInputLength < $this->charLimit){
             return ["Query must be more than " .$this->charLimit." characters."];
         }
-        $query = json_decode(file_get_contents($this->apiUri.$this->type.'?'.$this->param.$this->userInput.$this->hash), true);
+        $query = json_decode(file_get_contents($this->apiUri.$this->type.'?limit=10&'.$this->param.$this->userInput.$this->hash), true);
 
-        $results = [];
-        foreach ($query['data']['results'] as $result){
-            array_push($results, $result['name']);
+        $results = array_fill_keys(['stats', 'data'], []);
+        $queryData = $query['data'];
+        $results['stats'] = array('offset' => $queryData["offset"], 'limit' => $queryData['limit'], 'total' => $queryData['total']);
+
+        foreach ($queryData['results'] as $result) {
+            array_push($results['data'], $result['name']);
         }
 
         return $results;

@@ -31,11 +31,11 @@
                     $.post('/api/search', {
                        input: this.query
                     }, function(results){
-                        this.queryResults = results;
+                        this.queryResults = results['data'];
                     }.bind(this));
                 }
-                /*this.$http.post('/api/search', function(results){
-                    console.log(results);
+                /*this.$http.post('/api/search', ['the'], function(results){
+                    console.log(results['data']);
                 });*/
             }
         }
@@ -50,6 +50,9 @@
     }
     .form{
         margin-top: 22px;
+    }
+    li{
+        font-size: 1.5em;
     }
 
 
