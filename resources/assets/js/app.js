@@ -19,6 +19,6 @@ Vue.component('searchbar', require('./components/Searchbar.vue'));
 
 const app = new Vue({
 
-    el: '#search',
+    el: '#search'
 
 });

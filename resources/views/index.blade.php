@@ -37,6 +37,11 @@
                 </div>
             </div>
         </div>
+        <script>
+            window.Laravel = <?php echo json_encode([
+                    'csrfToken' => csrf_token(),
+            ]); ?>
+        </script>
         <script type="application/javascript" src="/js/app.js"></script>
     </body>
 </html>
