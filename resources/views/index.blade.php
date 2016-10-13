@@ -25,7 +25,7 @@
                     <div id="menu" class="col-md-2">
                         <h2>ComicLog</h2>
                         <ul>
-                            <li><a href="#">Lorem</a></li>
+                            <li><a href="#">My characters</a></li>
                         </ul>
                     </div>
                     <div id="content" class="col-md-10">
