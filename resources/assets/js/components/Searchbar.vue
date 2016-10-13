@@ -7,10 +7,7 @@
             </div>
             <div class="results-grid">
 
-                <div class="loading-animation" transition="fade" v-show="isLoading">
-                    <i class="fa fa-spinner fa-pulse fa-fw"></i>
-                    <span class="sr-only">Loading...</span>
-                </div>
+                <loading v-show="isLoading"></loading>
 
                 <ul v-if="queryResults.length > 0">
                     <li v-for="result in queryResults">
@@ -23,7 +20,7 @@
 </template>
 
 <script>
-
+    Vue.component('loading', require('./Loading.vue'));
     export default{
         data(){
             return{
