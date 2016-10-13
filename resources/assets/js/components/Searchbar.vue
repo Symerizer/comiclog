@@ -10,7 +10,6 @@
                         {{ result }}
                     </li>
                 </ul>
-            <p v-else>No results</p>
         </div>
     </div>
 </template>
@@ -34,7 +33,12 @@
                     $.post('/api/search', {
                        input: this.query
                     }, function(results){
-                        this.queryResults = results['data'];
+                        if(results['data'] == ''){
+                            this.queryResults = ['No results.'];
+                        }else{
+                            this.queryResults = results['data'];
+                        }
+
                     }.bind(this));
                 }
                 /*this.$http.post('/api/search', ['the'], function(results){
