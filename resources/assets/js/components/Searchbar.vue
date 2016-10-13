@@ -1,7 +1,8 @@
 <template>
     <div class="form">
         <div class="form-group">
-            <input class="form-control" v-model="query" @keydown.enter="getResults" id="query" name="query" type="text">
+            <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+            <input class="form-control" placeholder="Enter any Marvel characters' name" v-model="query" @keydown.enter="getResults" id="query" name="query" type="text">
                 <ul v-if="queryResults.length > 0">
                     <li v-for="result in queryResults">
                         {{ result }}
