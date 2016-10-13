@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-    <p>Hullo</p>
+    <h1>Welcome to ComicLog!</h1>
 @endsection
