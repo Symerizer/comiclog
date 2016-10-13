@@ -5,11 +5,17 @@
                 <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
                 <input class="form-control" placeholder="Enter any Marvel characters' name" v-model="query" @keydown.enter="getResults" id="query" name="query" type="text">
             </div>
+            <div class="results-grid">
+                <div class="loading-animation" v-show="isLoading">
+                    <i class="fa fa-spinner fa-pulse fa-fw"></i>
+                    <span class="sr-only">Loading...</span>
+                </div>
                 <ul v-if="queryResults.length > 0">
                     <li v-for="result in queryResults">
                         {{ result }}
                     </li>
                 </ul>
+            </div>
         </div>
     </div>
 </template>
@@ -20,7 +26,8 @@
         data(){
             return{
                 queryResults: "",
-                query: ""
+                query: "",
+                isLoading: false
             }
         },
 
@@ -30,6 +37,7 @@
                     this.queryResults = ["Search term must be more than 2 characters."]
                 }
                 else{
+                    this.isLoading = true;
                     $.post('/api/search', {
                        input: this.query
                     }, function(results){
@@ -38,7 +46,7 @@
                         }else{
                             this.queryResults = results['data'];
                         }
-
+                        this.isLoading = false;
                     }.bind(this));
                 }
                 /*this.$http.post('/api/search', ['the'], function(results){
@@ -61,7 +69,14 @@
     li{
         font-size: 1.5em;
     }
+    .loading-animation{
+        position: absolute;
+        right: 50%;
+        bottom: 50%;
+        font-size: 4.5em;
+    }
+    .results-grid{
 
-
+    }
 
 </style>
