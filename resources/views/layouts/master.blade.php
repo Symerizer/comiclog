@@ -30,10 +30,14 @@
                 <div id="user-info">
                     <div class="wrapper-update">
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <form action="{{ url('/login') }}">
+                            <button class="btn btn-default btn-block btn-login">Login</button>
+                        </form>
+                        <form action="{{ url('/register') }}}}">
+                            <button class="btn btn-primary btn-block">Register</button>
+                        </form>
                     @else
-                        <div>Logged user: {{ Auth::user()->name }}</div>
+                        <div>Current user: {{ Auth::user()->name }}</div>
                         <div class="logout-btn">
                             <form id="logout-form" action="{{ url('/logout') }}" method="POST">
                                 <button class="btn btn-success btn-block">Logout</button>
