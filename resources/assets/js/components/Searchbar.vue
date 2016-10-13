@@ -6,10 +6,12 @@
                 <input class="form-control" placeholder="Enter any Marvel characters' name" v-model="query" @keydown.enter="getResults" id="query" name="query" type="text">
             </div>
             <div class="results-grid">
-                <div class="loading-animation" v-show="isLoading">
+
+                <div class="loading-animation" transition="fade" v-show="isLoading">
                     <i class="fa fa-spinner fa-pulse fa-fw"></i>
                     <span class="sr-only">Loading...</span>
                 </div>
+
                 <ul v-if="queryResults.length > 0">
                     <li v-for="result in queryResults">
                         {{ result }}
@@ -77,6 +79,13 @@
     }
     .results-grid{
 
+    }
+    .fade-transition {
+        transition: all .3s ease;
+    }
+
+    .fade-enter, .fade-leave {
+        opacity: 0;
     }
 
 </style>
