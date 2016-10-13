@@ -1,8 +1,10 @@
 <template>
     <div class="form">
         <div class="form-group">
-            <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-            <input class="form-control" placeholder="Enter any Marvel characters' name" v-model="query" @keydown.enter="getResults" id="query" name="query" type="text">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                <input class="form-control" placeholder="Enter any Marvel characters' name" v-model="query" @keydown.enter="getResults" id="query" name="query" type="text">
+            </div>
                 <ul v-if="queryResults.length > 0">
                     <li v-for="result in queryResults">
                         {{ result }}
