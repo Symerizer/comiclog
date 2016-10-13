@@ -13,11 +13,6 @@
         <link rel="stylesheet" href="/css/app.css" type="text/css">
     </head>
     <body>
-    <script>
-        window.Laravel = <?php echo json_encode([
-                'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
             @if (Route::has('login'))
                 <div class="top-right links">
                     <a href="{{ url('/login') }}">Login</a>
