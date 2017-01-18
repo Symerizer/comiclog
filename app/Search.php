@@ -34,7 +34,7 @@ class Search extends Model
         $results['stats'] = array('offset' => $queryData["offset"], 'limit' => $queryData['limit'], 'total' => $queryData['total']);
 
         foreach ($queryData['results'] as $result) {
-            array_push($results['data'], $result['name']);
+            array_push($results['data'], ["name" => $result['name'], "id" => $result['id']]);
         }
 
         return $results;

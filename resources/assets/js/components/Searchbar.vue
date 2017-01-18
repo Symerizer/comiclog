@@ -11,7 +11,7 @@
 
                 <ul v-if="queryResults.length > 0">
                     <li v-for="result in queryResults">
-                        {{ result }}
+                        <a href="#" v-on:click="addToFavourites(result.id)"><i class="fa fa-star-o fa-fw"></i></a> {{ result.name }}
                     </li>
                 </ul>
             </div>
@@ -48,9 +48,9 @@
                         this.isLoading = false;
                     }.bind(this));
                 }
-                /*this.$http.post('/api/search', ['the'], function(results){
-                    console.log(results['data']);
-                });*/
+            },
+            addToFavourites: function(id){
+                console.log(id);
             }
         }
     }
