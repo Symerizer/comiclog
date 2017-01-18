@@ -50,7 +50,9 @@
                 }
             },
             addToFavourites: function(id){
-                console.log(id);
+                $.post('/api/favourites', { input: id }, function(result){
+                    console.log(result);
+                });
             }
         }
     }

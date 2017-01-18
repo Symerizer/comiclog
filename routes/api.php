@@ -18,3 +18,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::post('/search', 'Searches@returnCharacters');
+
+Route::resource('favourites', 'Favourites');
