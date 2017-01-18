@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Search extends Model
 {
     private $hash;
-    private $apiUri = 'http://gateway.marvel.com:80/v1/public/';
+    private $apiUri = 'https://gateway.marvel.com:443/v1/public/';
     private $type;
     private $param;
     private $userInput;
