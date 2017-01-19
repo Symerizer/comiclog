@@ -19,4 +19,4 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/search', 'Searches@returnCharacters');
 
-Route::resource('favourites', 'Favourites');
+Route::post('/favourites', 'Favourites@store')->middleware('web');

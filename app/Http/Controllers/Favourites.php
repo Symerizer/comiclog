@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Favourite;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 
 class Favourites extends Controller
@@ -36,7 +37,11 @@ class Favourites extends Controller
      */
     public function store(Request $request)
     {
-        return "test";
+        $fav = new Favourite();
+        $fav->char_id = $request->input;
+        $fav->user_id = Auth::id();
+        $fav->save();
+        return response(200);
     }
 
     /**

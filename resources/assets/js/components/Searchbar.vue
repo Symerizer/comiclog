@@ -26,7 +26,7 @@
             return{
                 queryResults: "",
                 query: "",
-                isLoading: false
+                isLoading: false,
             }
         },
 
@@ -50,7 +50,10 @@
                 }
             },
             addToFavourites: function(id){
-                $.post('/api/favourites', { input: id }, function(result){
+            console.log($('meta[name="csrf-token"]').attr('content'));
+                $.post('/api/favourites',
+                { input: id })
+                .done(function(result){
                     console.log(result);
                 });
             }
