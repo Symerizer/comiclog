@@ -1,8 +1,9 @@
 <?php
 
 namespace App;
-
+use App\Favourite;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Search extends Model
 {
@@ -33,8 +34,22 @@ class Search extends Model
         $queryData = $query['data'];
         $results['stats'] = array('offset' => $queryData["offset"], 'limit' => $queryData['limit'], 'total' => $queryData['total']);
 
+        //Get user favourites
+
+        $userFavourites = Favourite::where("user_id", Auth::id())->get();
+        debug($userFavourites);
         foreach ($queryData['results'] as $result) {
-            array_push($results['data'], ["name" => $result['name'], "id" => $result['id']]);
+            foreach($userFavourites as $favourite){
+                if($favourite->char_id == $result['id']){
+                    array_push($results['data'], ["name" => $result['name'], "id" => $result['id'], "isFavourite" => true]);
+                    break;
+                }
+                else{
+                debug($favourite->char_id, $result['id']);
+                array_push($results['data'], ["name" => $result['name'], "id" => $result['id'], "isFavourite" => false]);
+                    break;
+                }
+            }
         }
 
         return $results;

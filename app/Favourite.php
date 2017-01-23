@@ -13,6 +13,6 @@ class Favourite extends Model
 
     public static function isFavourite($charsId){
         $userFavourites = Favourite::where("user_id", Auth::id())->get();
-        debug($userFavourites);
+        debug($charsId);
     }
 }

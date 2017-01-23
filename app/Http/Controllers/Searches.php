@@ -12,7 +12,6 @@ class Searches extends Controller
     public function returnCharacters(Request $request){
 
         $query = new Search('characters', 'nameStartsWith=', $request->get('input'));
-        Favourite::isFavourite($query);
         return response()->json($query->returnResults());
     }
 }
