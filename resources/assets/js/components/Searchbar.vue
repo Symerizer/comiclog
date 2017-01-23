@@ -43,6 +43,7 @@
                         if(results['data'] == ''){
                             this.queryResults = ['No results.'];
                         }else{
+                        console.log(results);
                             this.queryResults = results['data'];
                         }
                         this.isLoading = false;
